@@ -22,7 +22,7 @@ const [activeIndex, setActiveIndex] = useState(null);
       </React.Fragment>
     );
   });
-  return <div className="ui styled accordion">{renderedItems}
+  return <div className="ui styled accordion">{renderedItems}</div>
   
 };
 
