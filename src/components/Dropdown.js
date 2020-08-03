@@ -1,7 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Dropdown = ({options, selected, onSelectedChange}) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.addEventListener('click', () => {
+      setOpen(false);
+    });
+  }, []);
 
   const renderedOptions = options.map((option) => {
     if (option.value === selected.value) {
@@ -29,7 +35,9 @@ const Dropdown = ({options, selected, onSelectedChange}) => {
         >
           <i className="dropdown icon"></i>
           <div className="text">{selected.label}</div>
-          <div className={`menu ${open ? 'visible transition' : ''}`}>{renderedOptions}</div>
+          <div className={`menu ${open ? 'visible transition' : ''}`}>
+            {renderedOptions}
+          </div>
         </div>
       </div>
     </div>
